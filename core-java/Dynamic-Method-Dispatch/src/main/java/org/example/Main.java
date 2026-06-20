@@ -15,6 +15,12 @@ public class Main {
         s2.display();
 
 
-
+        System.out.println("----------DynamicMethodDispatch------------");
+        /**
+         * Here Super is reference and new Sub() is object.
+         * So java calls overriden method based on the object, not the reference.
+         */
+        Super s3=new Sub();
+        s3.display();//Output - Sub
     }
 }
