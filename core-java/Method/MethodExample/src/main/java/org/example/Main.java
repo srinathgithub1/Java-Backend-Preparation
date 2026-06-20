@@ -4,16 +4,15 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int n;
-        System.out.print("Enter the Number: ");
+        int m,n;
+
         Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the Number M: ");
+        m = sc.nextInt();
+
+        System.out.print("Enter the Number N: ");
         n=sc.nextInt();
 
-//        Prime prime=new Prime();
-        if(Prime.isPrime(n)){
-            System.out.println("Prime Number");
-        }else {
-            System.out.println("Not Prime Number");
-        }
+        System.out.println(GreatestCommonFactor.GCD(m,n));
     }
 }
