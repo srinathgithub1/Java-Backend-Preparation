@@ -9,6 +9,8 @@ public class Main {
 //         This will call the case-2 method
         System.out.println(Max.max(40.2f,20));
 
+        System.out.println(Max.max(10,40,30));
+
 
     }
 }
