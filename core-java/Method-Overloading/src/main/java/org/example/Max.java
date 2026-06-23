@@ -51,4 +51,21 @@ public class Max {
         return 0;
     }
 
+
+    /**
+     * Case-5: this will not allowed. return type is different but the signature of method is not different.
+     * signature means - method name and parameter type.
+     *
+     */
+    public static float max(int a,int b,int c){
+        if(a>b && a>c){
+            return a;
+        }else if(b>a && b>c){
+            return b;
+        }else if(c>a && a>b){
+            return c;
+        }
+        return 0;
+    }
+
 }
