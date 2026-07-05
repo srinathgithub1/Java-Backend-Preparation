@@ -21,11 +21,11 @@ public class Main {
         ResultSet re=st.executeQuery(sql);
 //        re.next() check in table if it is having next row then it will return true else false
 //        initialy pointer next() pointing to the header so first move the next row then print.
-        System.out.println(re.next());
-        System.out.println(re.next());
-
-
-
+        while(re.next()){
+            String name=re.getString("sname");
+            int mark=re.getInt("marks");
+            System.out.println(name + "  " + mark);
+        }
 
         re.close();
         st.close();
