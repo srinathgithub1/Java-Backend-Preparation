@@ -7,7 +7,7 @@ public class Main {
         String username="postgres";
         String password="Srinath@123";
 //        PostgreSQL by default taking string in lowercase, so it is better to take the database name and column name in lower case.
-        String sql="insert into student values(7,'Kiran',80)";
+        String sql="update student set sname='Riya' where sid=1";
 
 //        this is Optional
         Class.forName("org.postgresql.Driver");
@@ -21,7 +21,7 @@ public class Main {
 //        boolean status=st.execute(sql);
 //        System.out.println(status);
         int rows=st.executeUpdate(sql);
-        System.out.println(rows+" rows inserted");
+        System.out.println(rows + " rows updated successfully");
 
         st.close();
         cn.close();
