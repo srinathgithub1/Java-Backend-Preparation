@@ -10,24 +10,21 @@ public class Main {
 
         Student st=new Student();
 
-        st.setsId(103);
-        st.setsName("Prabhat");
-        st.setMarks(90);
+        st.setsId(104);
+        st.setsName("Vikash");
+        st.setMarks(70);
 
-//        System.out.println(st);
 
-        Configuration cfg=new Configuration().configure().addAnnotatedClass(Student.class);
+        try(SessionFactory sf=new Configuration()
+                .configure()
+                .addAnnotatedClass(Student.class)
+                .buildSessionFactory();
+                Session session=sf.openSession()){
+            Transaction tx=session.beginTransaction();
+            session.persist(st);
+            tx.commit();
+            System.out.print("Data saved successfully");
+        }
 
-        SessionFactory sf=cfg.buildSessionFactory();
-
-        Session session=sf.openSession();
-
-        Transaction tx=session.beginTransaction();
-
-        session.persist(st);
-        tx.commit();
-
-        session.close();
-        sf.close();
     }
 }
