@@ -10,9 +10,9 @@ public class Main {
 
         Student st=new Student();
 
-        st.setsId(101);
-        st.setsName("Jack");
-        st.setMarks(18);
+        st.setsId(103);
+        st.setsName("Prabhat");
+        st.setMarks(90);
 
 //        System.out.println(st);
 
