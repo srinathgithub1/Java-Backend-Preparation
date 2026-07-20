@@ -8,22 +8,18 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     public static void main(String[] args) {
 
-        Student st=new Student();
-
-        st.setsId(104);
-        st.setsName("Vikash");
-        st.setMarks(70);
-
-
         try(SessionFactory sf=new Configuration()
                 .configure()
                 .addAnnotatedClass(Student.class)
                 .buildSessionFactory();
                 Session session=sf.openSession()){
-            Transaction tx=session.beginTransaction();
-            session.persist(st);
-            tx.commit();
-            System.out.print("Data saved successfully");
+            Student s1=session.find(Student.class,102);
+            if(s1!=null){
+                System.out.println(s1);
+            }else{
+                System.out.println("Data not found");
+            }
+
         }
 
     }
