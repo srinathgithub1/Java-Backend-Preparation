@@ -13,13 +13,19 @@ public class Main {
                 .addAnnotatedClass(Student.class)
                 .buildSessionFactory();
                 Session session=sf.openSession()){
-            Student s1=session.find(Student.class,102);
-            if(s1!=null){
-                System.out.println(s1);
-            }else{
-                System.out.println("Data not found");
-            }
+            /***
+             * Update the Record.
+             * Approach-1:
+             */
+            Student student=new Student();
+            student.setsId(3);
+            student.setsName("Pooja");
+            student.setMarks(70);
 
+            Transaction tx=session.beginTransaction();
+            session.merge(student);
+            tx.commit();
+            System.out.println("Data Updated Successfully");
         }
 
     }
