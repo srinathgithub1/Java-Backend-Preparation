@@ -14,18 +14,16 @@ public class Main {
                 .buildSessionFactory();
                 Session session=sf.openSession()){
             /***
-             * Update the Record.
-             * Approach-1:
+             * Delete the Record
              */
-            Student student=new Student();
-            student.setsId(3);
-            student.setsName("Pooja");
-            student.setMarks(70);
+            Student st=session.find(Student.class,1);
 
             Transaction tx=session.beginTransaction();
-            session.merge(student);
+            
+            session.remove(st);
             tx.commit();
-            System.out.println("Data Updated Successfully");
+
+            System.out.println("Data Deleted Successfully");
         }
 
     }
